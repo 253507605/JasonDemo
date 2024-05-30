@@ -29,6 +29,6 @@ public class ConsumerController {
         for(String service : services) {
             System.out.println(service);
         }
-        return restTemplate.getForObject("http://springdemo:8081/hello",String.class);
+        return restTemplate.getForObject("http://springdemo/hello",String.class);
     }
 }
