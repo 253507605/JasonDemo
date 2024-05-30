@@ -1,6 +1,7 @@
 package com.springdemo.controller;
 
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jason.common.entity.CalculateCard;
 import com.jason.common.util.AtdMachineCarddata;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
 
 /**
  * @Author Jason.Chen
@@ -47,12 +50,15 @@ public class KafkaProducerController {
         atdMachineCardData.setStartDate(date);
         atdMachineCardData.setEndDate(date);
         atdMachineCardData.setRecalByLockFlag(false);
-        kafkaTemplate.send("TOPIC_DCP_SOURCE_D_LA",personId,JSONObject.toJSONString(atdMachineCardData));
+        String key = "DCP:RESULT:{0}:atd_person_timesheet:{1}:{2}";
+        redisTemplate.delete(String.format(key, tenantCode.toUpperCase(), personId, date));
+        kafkaTemplate.send("TOPIC_DCP_SOURCE_D_LA", personId, JSONObject.toJSONString(atdMachineCardData));
     }
 
-    @GetMapping("/getredis")
-    public void getRedis(){
-        redisTemplate.opsForValue().set("jason","chen");
-        System.out.println(redisTemplate.opsForValue().get("jason"));
+    //发送打卡请求
+    @PostMapping("/sendToFlink")
+    public void sendToFlink(@RequestBody AtdMachineCarddata atdMachineCarddata) {
+        atdMachineCarddata.setId(UUID.randomUUID().toString());
+        kafkaTemplate.send("TOPIC_DCP_SOURCE_D_LA", atdMachineCarddata.getPersonId(), JSONObject.toJSONString(atdMachineCarddata));
     }
 }

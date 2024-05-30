@@ -2,6 +2,7 @@ package com.jason.common.config;
 
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,10 +29,10 @@ public class KafkaProduceConfig {
     private Integer retries;
 
     @Value("${spring.kafka.producer.batch-size}")
-    private DataSize batchSize;
+    private Integer batchSize;
 
     @Value("${spring.kafka.producer.buffer-memory}")
-    private DataSize bufferMemory;
+    private Integer bufferMemory;
 
 
     public Map<String,Object> buildProducerProperties(){
@@ -40,8 +41,8 @@ public class KafkaProduceConfig {
         properties.put(ProducerConfig.RETRIES_CONFIG, retries);
         properties.put(ProducerConfig.BATCH_SIZE_CONFIG, batchSize);
         properties.put(ProducerConfig.BUFFER_MEMORY_CONFIG, bufferMemory);
-        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, String.class);
-        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, String.class);
+        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         return properties;
     }
 

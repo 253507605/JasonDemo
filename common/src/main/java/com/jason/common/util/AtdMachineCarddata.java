@@ -5,15 +5,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.beans.Transient;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @Author Jason.Chen
  * @create 2024/5/16 11:26
  */
-@Getter
-@Setter
-public class AtdMachineCarddata {
+
+public class AtdMachineCarddata implements Serializable {
 
     private String id;
 
@@ -193,4 +193,316 @@ public class AtdMachineCarddata {
     public String startDate;
     // 重算结束时间
     public String endDate;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTenantCode() {
+        return tenantCode;
+    }
+
+    public void setTenantCode(String tenantCode) {
+        this.tenantCode = tenantCode;
+    }
+
+    public String getDeviceType() {
+        return deviceType;
+    }
+
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
+    }
+
+    public String getEmployeeBsInfo() {
+        return employeeBsInfo;
+    }
+
+    public void setEmployeeBsInfo(String employeeBsInfo) {
+        this.employeeBsInfo = employeeBsInfo;
+    }
+
+    public String getfCardno() {
+        return fCardno;
+    }
+
+    public void setfCardno(String fCardno) {
+        this.fCardno = fCardno;
+    }
+
+    public String getfReaddate() {
+        return fReaddate;
+    }
+
+    public void setfReaddate(String fReaddate) {
+        this.fReaddate = fReaddate;
+    }
+
+    public String getfControllersn() {
+        return fControllersn;
+    }
+
+    public void setfControllersn(String fControllersn) {
+        this.fControllersn = fControllersn;
+    }
+
+    public String getMachineId() {
+        return machineId;
+    }
+
+    public void setMachineId(String machineId) {
+        this.machineId = machineId;
+    }
+
+    public Integer getfFlag() {
+        return fFlag;
+    }
+
+    public void setfFlag(Integer fFlag) {
+        this.fFlag = fFlag;
+    }
+
+    public String getSysstate() {
+        return sysstate;
+    }
+
+    public void setSysstate(String sysstate) {
+        this.sysstate = sysstate;
+    }
+
+    public String getfPunchtype() {
+        return fPunchtype;
+    }
+
+    public void setfPunchtype(String fPunchtype) {
+        this.fPunchtype = fPunchtype;
+    }
+
+    public String getfLastupdatedtm() {
+        return fLastupdatedtm;
+    }
+
+    public void setfLastupdatedtm(String fLastupdatedtm) {
+        this.fLastupdatedtm = fLastupdatedtm;
+    }
+
+    public Integer getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Integer isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+    public Double getMachineOffset() {
+        return machineOffset;
+    }
+
+    public void setMachineOffset(Double machineOffset) {
+        this.machineOffset = machineOffset;
+    }
+
+    public Integer getVerify() {
+        return verify;
+    }
+
+    public void setVerify(Integer verify) {
+        this.verify = verify;
+    }
+
+    public String getCardnum() {
+        return cardnum;
+    }
+
+    public void setCardnum(String cardnum) {
+        this.cardnum = cardnum;
+    }
+
+    public String getMacsn() {
+        return macsn;
+    }
+
+    public void setMacsn(String macsn) {
+        this.macsn = macsn;
+    }
+
+    public String getLockedBy() {
+        return lockedBy;
+    }
+
+    public void setLockedBy(String lockedBy) {
+        this.lockedBy = lockedBy;
+    }
+
+    public String getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(String personId) {
+        this.personId = personId;
+    }
+
+    public Date getCreateDtm() {
+        return createDtm;
+    }
+
+    public void setCreateDtm(Date createDtm) {
+        this.createDtm = createDtm;
+    }
+
+    public String getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
+    }
+
+    public Date getLastUpdateDtm() {
+        return lastUpdateDtm;
+    }
+
+    public void setLastUpdateDtm(Date lastUpdateDtm) {
+        this.lastUpdateDtm = lastUpdateDtm;
+    }
+
+    public String getLastUpdateUser() {
+        return lastUpdateUser;
+    }
+
+    public void setLastUpdateUser(String lastUpdateUser) {
+        this.lastUpdateUser = lastUpdateUser;
+    }
+
+    public Integer getSource() {
+        return source;
+    }
+
+    public void setSource(Integer source) {
+        this.source = source;
+    }
+
+    public Date getTimecardDate() {
+        return timecardDate;
+    }
+
+    public void setTimecardDate(Date timecardDate) {
+        this.timecardDate = timecardDate;
+    }
+
+    public Integer getTimecardNum() {
+        return timecardNum;
+    }
+
+    public void setTimecardNum(Integer timecardNum) {
+        this.timecardNum = timecardNum;
+    }
+
+    public Boolean getTemporary() {
+        return isTemporary;
+    }
+
+    public void setTemporary(Boolean temporary) {
+        isTemporary = temporary;
+    }
+
+    public String getOpId() {
+        return opId;
+    }
+
+    public void setOpId(String opId) {
+        this.opId = opId;
+    }
+
+    public Boolean getForce() {
+        return isForce;
+    }
+
+    public void setForce(Boolean force) {
+        isForce = force;
+    }
+
+    public CalculateCard getCalculateCard() {
+        return calculateCard;
+    }
+
+    public void setCalculateCard(CalculateCard calculateCard) {
+        this.calculateCard = calculateCard;
+    }
+
+    public Boolean getRecalculateDebug() {
+        return recalculateDebug;
+    }
+
+    public void setRecalculateDebug(Boolean recalculateDebug) {
+        this.recalculateDebug = recalculateDebug;
+    }
+
+    public Boolean getRecalByLockFlag() {
+        return recalByLockFlag;
+    }
+
+    public void setRecalByLockFlag(Boolean recalByLockFlag) {
+        this.recalByLockFlag = recalByLockFlag;
+    }
+
+    public Date getEffectDate() {
+        return effectDate;
+    }
+
+    public void setEffectDate(Date effectDate) {
+        this.effectDate = effectDate;
+    }
+
+    public String getCorrelationId() {
+        return correlationId;
+    }
+
+    public void setCorrelationId(String correlationId) {
+        this.correlationId = correlationId;
+    }
+
+    public String getAttendanceExtraInfo() {
+        return attendanceExtraInfo;
+    }
+
+    public void setAttendanceExtraInfo(String attendanceExtraInfo) {
+        this.attendanceExtraInfo = attendanceExtraInfo;
+    }
+
+    public boolean isBatchRecal() {
+        return isBatchRecal;
+    }
+
+    public void setBatchRecal(boolean batchRecal) {
+        isBatchRecal = batchRecal;
+    }
+
+    public boolean isSendToAcc() {
+        return isSendToAcc;
+    }
+
+    public void setSendToAcc(boolean sendToAcc) {
+        isSendToAcc = sendToAcc;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
 }
